@@ -1,0 +1,104 @@
+extends layout
+
+block content
+
+  .jumbotron.text-center
+    h1= title
+    p Welcome to a RESTFUL API Mongoose Atlas Node.js pro jack
+    form.form-inline
+      div.input-group
+        input.form-control(type="email", size="50", placeholder="Email Address", required)
+        div.input-group-btn
+          button.btn.btn-danger(type="button") Subscribe 
+
+
+  div.container-fluid
+    div.row
+      div.col-sm-4
+        h1 Stock used:
+        span.glyphicon.glyphicon-signal.logo
+      div.col-sm-8
+        p Welcome to #[em LocalLibrary], a very basic Express website developed as a practice project. The website is hosted at Railway.app, big shout outs, build in Node.js with Express server, using Mongo Atlas online database and front-end is made in pug engine and bootstrap.
+
+
+  div.container-fluid.bg-grey
+    div.row
+      div.col-sm-8
+        h1 What can you find in the Library:
+        span.glyphicon.glyphicon-globe.logo
+
+        if error
+          p Error getting dynamic content.
+        else
+
+      div.col-sm-4
+        p The library has the following record counts:
+
+        ul
+          li #[strong Books:] !{data.book_count}
+          li #[strong Copies:] !{data.book_instance_count}
+          li #[strong Copies available:] !{data.book_instance_available_count}
+          li #[strong Authors:] !{data.author_count}
+          li #[strong Genres:] !{data.genre_count}
+
+  h2 What our customers say
+  div#myCarousel.carousel.slide.text-center(data-ride="carousel")
+    // Indicators
+    ol.carousel-indicators
+      li(data-target="#myCarousel", data-slide-to="0", class="active")
+      li(data-target="#myCarousel", data-slide-to="1")
+      li(data-target="#myCarousel", data-slide-to="2")
+
+  // Wrapper for slides
+  div.carousel-inner(role="listbox")
+    div.item.active
+      h4
+        | "Don is the best. I am so happy with the result!"
+        br
+        span(style="font-style:normal;") Michael Roe, Vice President, Comment Box
+    div.item
+      h4
+        | "One word... WOW!!"
+        br
+        span(style="font-style:normal;") John Doe, Salesman, Rep Inc
+    div.item
+      h4
+        | "Could I... BE any more happy with this man?"
+        br
+        span(style="font-style:normal;") Chandler Bing, Actor, FriendsAlot
+
+    // Left and right controls
+    a.left.carousel-control(href="#myCarousel", role="button", data-slide="prev")
+      span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+      span.sr-only Previous
+    a.right.carousel-control(href="#myCarousel", role="button", data-slide="next")
+      span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+      span.sr-only Next
+
+  .container-fluid.bg-grey
+  h2.text-center CONTACT
+  .row
+    .col-sm-5
+      p Contact us and we'll get back to you within 24 hours.
+      p
+        span.glyphicon.glyphicon-map-marker
+        |  Chicago, US
+      p
+        span.glyphicon.glyphicon-phone
+        |  +00 1515151515
+      p
+        span.glyphicon.glyphicon-envelope
+        |  myemail@something.com
+    .col-sm-7
+      .row
+        .col-sm-6.form-group
+          input.form-control(id="name", name="name", placeholder="Name", type="text", required)
+        .col-sm-6.form-group
+          input.form-control(id="email", name="email", placeholder="Email", type="email", required)
+      textarea.form-control(id="comments", name="comments", placeholder="Comment", rows="5")
+      br
+      .row
+        .col-sm-12.form-group
+          button.btn.btn-default.pull-right(type="submit") Send
+
+
